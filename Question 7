@@ -1,0 +1,45 @@
+let data = [
+    {
+        price: 20,
+        quantity: 25,
+        option: "yes"
+    },
+    {
+        price: 12,
+        quantity: 25,
+        option: "yes"
+    },
+    {
+        price: 20,
+        quantity: 25,
+        option: "yes"
+    },
+    {
+        price: 15,
+        quantity: 25,
+        option: "yes"
+    },
+    {
+        price: 15,
+        quantity: 5,
+        ption: "yes"
+    }
+];
+
+let groupData = [];
+
+// forEach methord is used to iterate one by one data
+data.forEach(item => {
+    // This Query is used to find the similar data is already exists or not (basic of price and option)
+    let findData = groupData.find(entry => entry.price === item.price && entry.option === item.option);
+
+    if (findData) {
+        // Add the quantity of the similar product
+        findData.quantity += item.quantity;
+    } else {
+        // If data not find then add the data in groupData array
+        groupData.push({ price: item.price, quantity: item.quantity, option: item.option });
+    }
+});
+
+console.log(groupData);
